@@ -5,12 +5,15 @@ This template provides a setup for React development with:
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [MUI](https://mui.com/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Husky](https://typicode.github.io/husky/)
 - [Jest](https://jestjs.io/)
 - [SWC](https://swc.rs/)
 - [React Testing Library](https://testing-library.com/)
+- [Plop](https://plopjs.com/)
+- [GitHub CI](https://github.com/solutions/ci-cd/)
 
 ## Step by Step
 
@@ -125,3 +128,39 @@ add scripts
   }
 }
 ```
+
+---
+
+install [MUI](https://mui.com/material-ui/getting-started/installation/)
+
+```
+yarn add @mui/material @emotion/react @emotion/styled @mui/icons-material
+```
+
+---
+
+install [Plop](https://plopjs.com/documentation/)
+
+```
+yarn add -D plop
+```
+
+create `generators/plopfile.js` and create `templates`
+
+create `script` in `package.json`
+
+```json
+{
+  "scripts": {
+    "generate": "yarn --no plop --plopfile generators/plopfile.js"
+  }
+}
+```
+
+```
+yarn generate layout
+```
+
+---
+
+create `.github/workflows/ci.yml`
