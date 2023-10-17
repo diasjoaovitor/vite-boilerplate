@@ -9,6 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:ci": "jest --runInBand",
     "preview": "vite preview",
     "prepare": "husky install",
     "generate": "yarn plop --plopfile generators/plopfile.js"
