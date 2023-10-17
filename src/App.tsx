@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material'
+
 function App() {
-  return <h1>App</h1>
+  return <Typography component="h1">App</Typography>
 }
 
 export default App
