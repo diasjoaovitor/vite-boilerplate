@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate": "yarn plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -41,6 +42,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-fetch-mock": "^3.0.3",
     "lint-staged": "^15.0.1",
+    "plop": "^4.0.0",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",

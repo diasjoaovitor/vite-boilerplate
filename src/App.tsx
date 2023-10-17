@@ -1,7 +1,7 @@
-import { Typography } from '@mui/material'
+import { Layout } from './shared/components'
 
 function App() {
-  return <Typography component="h1">App</Typography>
+  return <Layout />
 }
 
 export default App
