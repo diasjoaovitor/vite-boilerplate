@@ -1,7 +1,7 @@
-import { Layout } from './shared/components'
+import { Router } from './Router'
 
 function App() {
-  return <Layout />
+  return <Router />
 }
 
 export default App
