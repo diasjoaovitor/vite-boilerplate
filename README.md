@@ -4,8 +4,8 @@ This template provides a setup for React development with:
 
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [MUI](https://mui.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Husky](https://typicode.github.io/husky/)
@@ -46,6 +46,49 @@ yarn add -D git-commit-msg-linter
 ---
 
 create `.editorconfig`
+
+---
+
+configure alias
+
+set options in `ts.config.json`
+
+```json
+{
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"]
+  }
+}
+```
+
+add module mapper in `jest.config.ts`
+
+```ts
+{
+  moduleNameMapper: {
+    '^@/shared(.*)$': '<rootDir>/src/shared$1'
+  }
+}
+```
+
+and configure in `vite.config.json`
+
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import path from 'path'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
+})
+```
 
 ---
 
@@ -90,6 +133,8 @@ npx husky-init && yarn
 
 create `.lintstagedrc.ts`
 
+change command to run _lint-staged_ in `.husky/pre-commit.sh`
+
 ---
 
 configure [Jest](https://jestjs.io/docs/getting-started) and [SWC](https://swc.rs/docs/getting-started)
@@ -124,7 +169,8 @@ add scripts
 {
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand"
   }
 }
 ```
@@ -164,3 +210,35 @@ yarn generate layout
 ---
 
 create `.github/workflows/ci.yml`
+
+---
+
+configure pages with [react-router-dom](https://reactrouter.com/en/main)
+
+```
+yarn add react-router-dom
+```
+
+create `pages/Home` and create `Router.tsx`
+
+import `Router.tsx` in `App.tsx`
+
+---
+
+configure **Theme**
+
+create themes in `shared/themes`
+
+create `ThemeContext`
+
+encapsule `Router` in `App.tsx`
+
+```tsx
+function App() {
+  return (
+    <ThemeProvider>
+      <Router />
+    </ThemeProvider>
+  )
+}
+```
