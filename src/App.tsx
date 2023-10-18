@@ -1,7 +1,12 @@
 import { Router } from './Router'
+import { ThemeProvider } from './shared/contexts'
 
 function App() {
-  return <Router />
+  return (
+    <ThemeProvider>
+      <Router />
+    </ThemeProvider>
+  )
 }
 
 export default App
