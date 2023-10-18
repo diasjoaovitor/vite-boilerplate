@@ -18,5 +18,8 @@ export default {
         }
       }
     ]
+  },
+  moduleNameMapper: {
+    '^@/shared(.*)$': '<rootDir>/src/shared$1'
   }
 }
