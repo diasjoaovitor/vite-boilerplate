@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react'
-import { Home } from '.'
+import { Page2 } from '.'
 
-describe('<Home />', () => {
+describe('<Page2 />', () => {
   it('should render the heading and main', () => {
-    render(<Home />)
+    render(<Page2 />)
     expect(
-      screen.getByRole('heading', { name: /página inicial/i })
+      screen.getByRole('heading', { name: /página 2/i })
     ).toBeInTheDocument()
     expect(screen.getByRole('main').firstChild!.textContent).toBe(
-      'Conteúdo da página inicial'
+      'Conteúdo da página 2'
     )
   })
 })
