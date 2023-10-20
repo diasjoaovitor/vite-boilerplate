@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from 'react'
-import { dark, lightTheme } from '@/shared/themes'
+import { darkTheme, lightTheme } from '@/shared/themes'
 
 export function useTheme() {
   const [themeName, setThemeName] = useState<'light' | 'dark'>('dark')
 
   const theme = useMemo(() => {
-    return themeName === 'dark' ? dark : lightTheme
+    return themeName === 'dark' ? darkTheme : lightTheme
   }, [themeName])
 
   const toggleTheme = useCallback(() => {
