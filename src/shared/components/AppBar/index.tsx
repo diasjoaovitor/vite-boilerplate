@@ -7,8 +7,7 @@ import {
   Divider
 } from '@mui/material'
 import { Menu, MenuOpen } from '@mui/icons-material'
-import { ViteIcon } from '@/shared/icons'
-import { Nav } from '..'
+import { Logo, Nav } from '..'
 import { useAppBar } from './useAppBar'
 import * as S from './style'
 
@@ -35,15 +34,17 @@ export function AppBar({ title, md }: Props) {
       >
         <Toolbar>
           {!md ? (
-            <IconButton size="large" edge="start" onClick={handleOpen}>
-              <MenuIcon />
-            </IconButton>
+            <>
+              <IconButton size="large" edge="start" onClick={handleOpen}>
+                <MenuIcon />
+              </IconButton>
+              <Typography ml={2} component="h1" variant="h6">
+                {title}
+              </Typography>
+            </>
           ) : (
-            <ViteIcon />
+            <Logo />
           )}
-          <Typography ml={2} component={!md ? 'h1' : 'div'} variant="h6">
-            {!md ? title : 'Vite Boilerplate'}
-          </Typography>
         </Toolbar>
         <Divider />
         {isOpened && <Nav />}
