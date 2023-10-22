@@ -1,5 +1,7 @@
 export * from './AppBar'
+export * from './Auth'
 export * from './Layout'
+export * from './Logo'
 export * from './Logout'
 export * from './Nav'
 export * from './ToggleTheme'
