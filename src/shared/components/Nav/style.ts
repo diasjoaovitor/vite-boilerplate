@@ -16,5 +16,6 @@ export const Wrapper: SxProps<Theme> = {
       my: 1
     }
   },
+  justifyContent: 'space-between',
   ...GS.FlexColumn
 }
