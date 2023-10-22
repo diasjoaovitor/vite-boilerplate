@@ -1,10 +1,11 @@
 import { Logout as LogoutIcon } from '@mui/icons-material'
 import { ListItemButton } from '@mui/material'
+import { useLogout } from './useLogout'
 
 export function Logout() {
-  const handleClick = () => console.log('logout')
+  const { handleLogout } = useLogout()
   return (
-    <ListItemButton onClick={handleClick}>
+    <ListItemButton onClick={handleLogout}>
       <LogoutIcon />
       Logout
     </ListItemButton>
