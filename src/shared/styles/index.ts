@@ -18,6 +18,5 @@ export const FlexRow: SxProps<Theme> = {
 
 export const FlexColumn: SxProps<Theme> = {
   display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between'
+  flexDirection: 'column'
 }
