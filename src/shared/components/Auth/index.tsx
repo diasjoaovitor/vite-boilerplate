@@ -7,7 +7,7 @@ import {
   Typography
 } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { Logo } from '..'
+import { Alert, Loader, Logo } from '..'
 import * as S from './style'
 
 export type TAuthInputProps = {
@@ -23,19 +23,25 @@ type Props = {
     text: string
   }
   inputs: TAuthInputProps[]
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>
+  error: string | null
+  isPending: boolean
+  handleClose(): void
+  handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void>
 }
 
 export function Auth({
   inputs,
   title,
   redirect: { to, text },
+  error,
+  isPending,
+  handleClose,
   handleSubmit
 }: Props) {
   return (
     <Box sx={S.Wrapper}>
       <Logo />
-      <Paper sx={S.Form} component="form" onSubmit={handleSubmit}>
+      <Paper sx={S.Form} component="form" role="form" onSubmit={handleSubmit}>
         <Typography component="h1" variant="h5">
           {title}
         </Typography>
@@ -49,6 +55,8 @@ export function Auth({
         </Button>
       </Paper>
       <Link to={to}>{text}</Link>
+      <Alert severity="error" title={error} handleClose={handleClose} />
+      <Loader open={isPending} />
     </Box>
   )
 }
