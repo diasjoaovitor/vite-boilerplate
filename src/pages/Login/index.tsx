@@ -1,15 +1,16 @@
 import { Auth } from '@/shared/components'
+import { login } from '@/shared/firebase'
+import { useAuth } from '@/shared/hooks'
 import { inputs } from './inputs'
-import { useAuthFormSubmit } from '@/shared/hooks'
 
 export function Login() {
-  const { handleSubmit } = useAuthFormSubmit()
+  const props = useAuth(login)
   return (
     <Auth
       title="Entrar"
       inputs={inputs}
-      redirect={{ to: '/registrar', text: 'Não tem uma conta? Cadastra-se!' }}
-      handleSubmit={handleSubmit}
+      redirect={{ to: '/registrar', text: 'Não tem uma conta? Cadastre-se!' }}
+      {...props}
     />
   )
 }
