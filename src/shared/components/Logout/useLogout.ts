@@ -1,10 +1,8 @@
-import { useNavigate } from 'react-router-dom'
+import { logout } from '@/shared/firebase'
 
 export function useLogout() {
-  const navigate = useNavigate()
-
-  const handleLogout = () => {
-    navigate('/entrar')
+  const handleLogout = async () => {
+    await logout()
   }
 
   return { handleLogout }
