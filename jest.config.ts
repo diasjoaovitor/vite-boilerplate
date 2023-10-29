@@ -8,10 +8,12 @@ export default {
     '!src/**/index.ts',
     '!src/**/style.ts',
     '!src/**/use*.ts',
+    '!src/**/nav-items.ts',
+    '!src/**/inputs.ts',
     '!src/shared/icons/*',
     '!src/shared/themes/*',
-    '!src/**/nav-items.ts',
-    '!src/**/inputs.ts'
+    '!src/shared/firebase/*',
+    'src/shared/functions/**/*'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   modulePaths: ['<rootDir>/src/'],
