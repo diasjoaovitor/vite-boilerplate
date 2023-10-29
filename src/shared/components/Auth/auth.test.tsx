@@ -14,6 +14,9 @@ function memoryRouter(handleSubmit: (e: React.FormEvent) => Promise<void>) {
             inputs={[]}
             redirect={{ text: 'Navigate', to: '/page2' }}
             title="Auth"
+            error={null}
+            isPending={false}
+            handleClose={jest.fn()}
             handleSubmit={handleSubmit}
           />
         )
