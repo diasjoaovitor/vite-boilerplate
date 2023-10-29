@@ -4,8 +4,10 @@ This template provides a setup for React development with:
 
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
+- [Firebase](https://firebase.google.com/)
 - [MUI](https://mui.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [React Query](https://tanstack.com/query/latest)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Husky](https://typicode.github.io/husky/)
@@ -14,6 +16,26 @@ This template provides a setup for React development with:
 - [React Testing Library](https://testing-library.com/)
 - [Plop](https://plopjs.com/)
 - [GitHub CI](https://github.com/solutions/ci-cd/)
+
+This project contains a responsive layout, login and registration pages using firebase, loading and alerts features, unit tests, route configurations, cli for creating new components, and others resources
+
+## Layout
+
+**Login**
+
+![login page](./.github/assets/login.png)
+
+**Register**
+
+![register page](./.github/assets/register.png)
+
+**Desktop**
+
+![dashboard page in desktop](./.github/assets/full-screen.png)
+
+**Mobile**
+
+![dashboard page in mobile](./.github/assets/mobile.png)
 
 ## Step by Step
 
@@ -146,7 +168,7 @@ yarn add -D jest @types/jest jest-environment-jsdom ts-node @swc/core @swc/jest
 install [react testing library](https://testing-library.com/docs/react-testing-library/intro/), [jest-dom](https://github.com/testing-library/jest-dom) and [jest-fetch-mock](https://github.com/jefflau/jest-fetch-mock#readme)
 
 ```
-yarn add -D @testing-library/react @testing-library/jest-dom jest-fetch-mock
+yarn add -D @testing-library/react @testing-library/user-event @testing-library/jest-dom jest-fetch-mock
 ```
 
 create `jest.config.ts`
@@ -169,7 +191,7 @@ add scripts
 {
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:ci": "jest --runInBand"
   }
 }
@@ -241,4 +263,88 @@ function App() {
     </ThemeProvider>
   )
 }
+```
+
+---
+
+install [firebase](https://firebase.google.com/docs/web/setup?hl=pt-br)
+
+```
+yarn add firebase
+```
+
+create `.env` and `shared/firebase/config.ts`
+
+create `shared/contexts/AuthContext`
+
+implements `PrivateRoute` in `Router.tsx`
+
+implements `AuthProvider` in `App.tsx`
+
+---
+
+install [React Query](https://tanstack.com/query/latest/docs/react/installation)
+
+```
+yarn add @tanstack/react-query
+```
+
+implements `QueryClientProvider` in `App.tsx`
+
+---
+
+install Firebase CLI
+
+```
+sudo npm install -g firebase-tools
+```
+
+implements Firebase Hosting
+
+```
+firebase login
+```
+
+```
+firebase init
+```
+
+```
+firebase deploy
+```
+
+configure vite to use `process.env` instead of `import.meta` in `vite.config.ts`
+
+```ts
+export default defineConfig((props) => {
+  const env = loadEnv(props.mode, process.cwd(), 'VITE')
+  const envWithProcessPrefix = {
+    'process.env': `${JSON.stringify(env)}`
+  }
+  return {
+    plugins: [react()],
+    define: envWithProcessPrefix,
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src')
+      }
+    }
+  }
+})
+```
+
+this setting fixes the error `SyntaxError: Cannot use 'import.meta' outside a module` when running unit tests
+
+also, the environment variables require a string as an alternative value to fix the error `Firebase: Error (auth/invalid-api-key)`
+
+```ts
+const app = initializeApp({
+  apiKey: process.env.VITE_API_KEY || 'string',
+  authDomain: process.env.VITE_AUTH_DOMAIN || 'string',
+  databaseURL: process.env.VITE_DATABASE_URL || 'string',
+  projectId: process.env.VITE_PROJECT_ID || 'string',
+  storageBucket: process.env.VITE_STORAGE_BUCKET || 'string',
+  messagingSenderId: process.env.VITE_MESSAGING_SENDER_ID || 'string',
+  appId: process.env.VITE_APP_ID || 'string'
+})
 ```
