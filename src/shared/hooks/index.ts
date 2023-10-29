@@ -1,1 +1,1 @@
-export * from './useAuthFormSubmit'
+export * from './useAuth'
