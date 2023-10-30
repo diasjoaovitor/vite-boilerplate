@@ -19,6 +19,12 @@ This template provides a setup for React development with:
 
 This project contains a responsive layout, login and registration pages using firebase, loading and alerts features, unit tests, route configurations, cli for creating new components, and others resources
 
+## Use This Template
+
+```
+npx degit https://github.com/diasjoaovitor/vite-boilerplate your-project
+```
+
 ## Layout
 
 **Login**
