@@ -1,4 +1,4 @@
-import { Main } from './shared/components/Main'
+import { Main } from '@/components'
 
 export const App = () => {
   return (
