@@ -281,7 +281,7 @@ add module mapper in `jest.config.ts`
 ```ts
 {
   moduleNameMapper: {
-    '^@/components(.*)$': '<rootDir>/src/shared/components$1'
+    '^@/(.*)$': '<rootDir>/src/shared/$1'
   }
 }
 ```
@@ -317,7 +317,7 @@ export default defineConfig((props) => {
     define: envWithProcessPrefix,
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src')
+        '@': path.resolve(__dirname, 'src/shared')
       }
     }
   }
