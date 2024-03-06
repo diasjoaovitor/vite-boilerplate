@@ -6,7 +6,7 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   modulePaths: ['<rootDir>/src/'],
   moduleNameMapper: {
-    '^@/components(.*)$': '<rootDir>/src/shared/components$1'
+    '^@/(.*)$': '<rootDir>/src/shared/$1'
   },
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': [
