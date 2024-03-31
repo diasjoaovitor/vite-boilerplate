@@ -359,3 +359,7 @@ jobs:
       - name: Build
         run: yarn build
 ```
+
+## References
+
+> Willian Justen - Next Boilerplate: https://github.com/React-Avancado/boilerplate
