@@ -74,7 +74,7 @@ add [git-commit-msg-linter](https://www.npmjs.com/package/git-commit-msg-linter)
 yarn add -D git-commit-msg-linter
 ```
 
-create `.editorconfig`
+create `.editorconfig` and install [your extension](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 
 ```yml
 root = true
