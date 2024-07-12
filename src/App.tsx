@@ -1,15 +1,7 @@
-import { Main } from '@/components'
-
-const key = process.env.VITE_API_KEY
+import { MyComponent } from '@/components'
 
 export const App = () => {
-  return (
-    <>
-      <div>App</div>
-      <div>{key}</div>
-      <Main />
-    </>
-  )
+  return <MyComponent />
 }
 
 export default App

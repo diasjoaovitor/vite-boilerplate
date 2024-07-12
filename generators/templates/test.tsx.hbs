@@ -1,8 +1,9 @@
+import { describe, expect, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { {{pascalCase name}} } from '.'
 
 describe('<{{pascalCase name}} />', () => {
-  it('should render component', () => {
+  test('should render component', () => {
     render(<{{pascalCase name}} />)
     expect(screen.getByText('{{pascalCase name}}')).toBeInTheDocument()
   })

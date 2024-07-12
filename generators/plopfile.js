@@ -1,4 +1,4 @@
-export default plop => {
+export default (plop) => {
   plop.setGenerator('component', {
     description: 'Create a component',
     prompts: [
@@ -11,12 +11,12 @@ export default plop => {
     actions: [
       {
         type: 'add',
-        path: '../src/shared/components/{{pascalCase name}}/index.tsx',
+        path: '../src/components/{{pascalCase name}}/index.tsx',
         templateFile: 'templates/Component.tsx.hbs'
       },
       {
         type: 'add',
-        path: '../src/shared/components/{{pascalCase name}}/{{kebabCase name}}.test.tsx',
+        path: '../src/components/{{pascalCase name}}/{{kebabCase name}}.test.tsx',
         templateFile: 'templates/test.tsx.hbs'
       }
     ]
