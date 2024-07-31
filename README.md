@@ -1,10 +1,9 @@
-# Next Boilerplate
+# Vite Boilerplate
 
 Baseado no [boilerplate-apps-router](https://github.com/React-Avancado/boilerplate-apps-router) do curso [React Avançado](https://reactavancado.com.br/)
 
 ## Tecnologias
 
-- [Next.js](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vitest](https://vitest.dev/)
