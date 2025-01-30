@@ -2,7 +2,7 @@
   "name": "vite-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate para projetos React utilizando o Vite",
-  "repository": "https://github.com/diasjoaovitor/next-boilerplate.git",
+  "repository": "https://github.com/diasjoaovitor/vite-boilerplate.git",
   "author": "João Vitor <jvitordiass@outlook.com.br>",
   "license": "MIT",
   "type": "module",
