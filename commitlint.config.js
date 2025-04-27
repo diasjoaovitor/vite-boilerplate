@@ -1,3 +1,3 @@
 export default {
-  extends: ['git-commit-emoji']
+  extends: ['emoji-convention']
 }
