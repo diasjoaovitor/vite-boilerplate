@@ -5,5 +5,8 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.autoSave": "off",
-  "git.autofetch": true
+  "git.autofetch": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
